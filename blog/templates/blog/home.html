@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<div class="grid-container">
+    {% for blog in blogs %}
+    <div class="post">
+        <a href="{% url 'view_blog' blog.id %}">
+            {% if blog.photo and blog.photo.image %}
+            <img src="{{ blog.photo.image.url }}" />
+            {% endif %}
+            <h4 class="post-title">> Post de {{ blog.author }} : {{ blog.title }}</h4>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
